@@ -23,3 +23,34 @@ baxar (BAsh Xml pARser) is an XML parser in bash.
 	esac
 	shift
 done
+
+bashVersion=$(echo ${BASH_VERSION%%[^0-9.]*} | grep -o ^[0-9]*)
+
+# Create array with syntax based on the following file:
+# <xml>
+#  <name>
+#   John Smith
+#  </name>
+#  <homes>
+#   <parents>
+#    1234 main drive
+#   </parents>
+#   <current>
+#    2345 foo lane
+#   </currents>
+#  </homes>
+#  <phone>
+#   1235554567
+#  </phone>
+# </xml>
+#
+# Array syntax
+#
+#	xml {
+#		[name] => "John Smith"
+#		[homes] => {
+#			[parents] => 1234 main drive
+#			[current] => 2345 foo lane
+#		} 
+#		[phone] => 1235554567
+#	}
