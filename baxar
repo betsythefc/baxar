@@ -1,0 +1,25 @@
+#!/bin/bash
+
+while [[ $# -gt 0 ]]
+do
+	opt="$1"
+	case $opt in
+		-f|--file)
+			file="$2"
+			shift
+		;;
+		-r|--read)
+			cat $file
+			shift
+		;;
+		-h|--help)
+			echo -e "
+baxar (BAsh Xml pARser) is an XML parser in bash.
+
+	-f|--file	Specify the XML file to parse.
+	-h|--help	Display this page.
+"
+		;;
+	esac
+	shift
+done
